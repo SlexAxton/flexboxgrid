@@ -2,14 +2,17 @@
  * Removed gutters by default Due to a pixel rounding bug in IE 10+
  * Once Google puts variables back we can use these to customize the grid
 :root {
-  var-half-gutter-width: 0.5rem;
-  var-gutter-compensation: -0.5rem;
-  var-outer-margin: 2rem;
+  --half-gutter-width: 0.5rem;
+  --gutter-compensation: -0.5rem;
+  --outer-margin: 2rem;
+  --breakpoint-lap: 48em;
+  --breakpoint-desk: 62em;
+  --breakpoint-wall: 75em;
 }
 */
 .grid {
-  padding-right: var( outer-margin, 0 );
-  padding-left: var( outer-margin, 0 );
+  padding-right: var( --outer-margin, 0 );
+  padding-left: var( --outer-margin, 0 );
 }
 .row {
   -webkit-box-sizing: border-box;
@@ -27,8 +30,8 @@
   -webkit-flex-wrap: wrap;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
-  margin-right: var( gutter-compensation, 0 );
-  margin-left: var( gutter-compensation, 0 );
+  margin-right: var( --gutter-compensation, 0 );
+  margin-left: var( --gutter-compensation, 0 );
 }
 .row.reverse {
   -webkit-box-orient: horizontal;
@@ -94,8 +97,8 @@
   -webkit-flex-shrink: 0;
   -ms-flex-negative: 0;
   flex-shrink: 0;
-  padding-right: var( half-gutter-width, 0 );
-  padding-left: var( half-gutter-width, 0 );
+  padding-right: var( --half-gutter-width, 0 );
+  padding-left: var( --half-gutter-width, 0 );
 }
 .column-auto-wall,
 .column-auto-desk,
@@ -265,7 +268,7 @@
   order: 1;
 }
 
-@media only screen and (min-width: 48em) {
+@media only screen and (min-width: var( --breakpoint-lap, 48em )) {
 
   .column-auto-lap {
     -webkit-flex-basis: 0%;
@@ -430,7 +433,7 @@
 
 }
 
-@media only screen and (min-width: 62em) {
+@media only screen and (min-width: var( --breakpoint-desk, 62em )) {
 
   .column-auto-desk {
     -webkit-flex-basis: 0%;
@@ -595,7 +598,7 @@
 
 }
 
-@media only screen and (min-width: 75em) {
+@media only screen and (min-width: var( --breakpoint-wall, 75em )) {
 
   .column-auto-wall {
     -webkit-flex-basis: 0%;
