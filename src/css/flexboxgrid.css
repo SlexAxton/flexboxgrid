@@ -9,7 +9,22 @@
   --breakpoint-desk: 62em;
   --breakpoint-wall: 75em;
 }
+
+ * There is no syntax to share breakpoint variables,
+ * or to do default mediaqueries. So to use this, add this
+ * to your variables file:
+
+ --breakpoint-lap: 48em;
+  @custom-media --mq-lap only screen and (min-width: 48em);
+
+  --breakpoint-desk: 62em;
+  @custom-media --mq-desk only screen and (min-width: 62em);
+
+  --breakpoint-wall: 75em;
+  @custom-media --mq-wall only screen and (min-width: 75em);
+
 */
+
 .grid {
   padding-right: var( --outer-margin, 0 );
   padding-left: var( --outer-margin, 0 );
@@ -173,7 +188,7 @@
   order: 1;
 }
 
-@media only screen and (min-width: var( --breakpoint-lap, 48em )) {
+@media (--mq-lap) {
 
   .column-auto-lap {
     flex-basis: 0%;
@@ -283,7 +298,7 @@
 
 }
 
-@media only screen and (min-width: var( --breakpoint-desk, 62em )) {
+@media (--mq-desk) {
 
   .column-auto-desk {
     flex-basis: 0%;
@@ -393,7 +408,7 @@
 
 }
 
-@media only screen and (min-width: var( --breakpoint-wall, 75em )) {
+@media (--mq-wall) {
 
   .column-auto-wall {
     flex-basis: 0%;
@@ -502,4 +517,3 @@
   }
 
 }
-
