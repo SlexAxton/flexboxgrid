@@ -7,6 +7,19 @@
  *  --gutter-compensation: -0.5rem;
  *  --outer-margin: 2rem;
  * }
+ *
+ * There is no syntax to share breakpoint variables,
+ * or to do default mediaqueries. So to use this, add this
+ * to your variables file:
+ *
+ * --breakpoint-sm: 48em;
+ *  @custom-media --mq-sm only screen and (min-width: 48em);
+ *
+ *  --breakpoint-md: 62em;
+ *  @custom-media --mq-md only screen and (min-width: 62em);
+ *
+ *  --breakpoint-lg: 75em;
+ *  @custom-media --mq-lg only screen and (min-width: 75em);
 */
 .grid {
   padding-right: var( --outer-margin, 2rem );
@@ -180,7 +193,7 @@
 .last-xs {
   order: 1;
 }
-@media only screen and (min-width: 48em) {
+@media (--mq-sm) {
   .col-sm,
   .col-sm-1,
   .col-sm-2,
@@ -336,7 +349,7 @@
     order: 1;
   }
 }
-@media only screen and (min-width: 62em) {
+@media (--mq-md) {
   .col-md,
   .col-md-1,
   .col-md-2,
@@ -490,7 +503,7 @@
     order: 1;
   }
 }
-@media only screen and (min-width: 75em) {
+@media (--mq-lg) {
   .col-lg,
   .col-lg-1,
   .col-lg-2,
